@@ -67,7 +67,7 @@ module Cronofy
       404 => NotFoundError,
       422 => InvalidRequestError,
       429 => TooManyRequestsError,
-    }.freeze
+    }
 
     def self.map_error(error)
       raise_error(error.response)

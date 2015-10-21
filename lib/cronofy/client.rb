@@ -8,7 +8,7 @@ module Cronofy
       read_events
       create_event
       delete_event
-    }.freeze
+    }
 
     # Public: Initialize a new Cronofy::Client.
     #
@@ -441,18 +441,11 @@ module Cronofy
 
     private
 
-    FREE_BUSY_DEFAULT_PARAMS = { tzid: "Etc/UTC" }.freeze
-    FREE_BUSY_TIME_PARAMS = %i{
-      from
-      to
-    }.freeze
+    FREE_BUSY_DEFAULT_PARAMS = { tzid: "Etc/UTC" }
+    FREE_BUSY_TIME_PARAMS = [:from, :to]
 
-    READ_EVENTS_DEFAULT_PARAMS = { tzid: "Etc/UTC" }.freeze
-    READ_EVENTS_TIME_PARAMS = %i{
-      from
-      to
-      last_modified
-    }.freeze
+    READ_EVENTS_DEFAULT_PARAMS = { tzid: "Etc/UTC" }
+    READ_EVENTS_TIME_PARAMS = [:from, :to, :last_modified]
 
     def access_token!
       raise CredentialsMissingError.new unless @auth.access_token
